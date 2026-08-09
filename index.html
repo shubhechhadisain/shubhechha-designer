@@ -2,201 +2,187 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Shubhechha Designer</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#fff9f4;
-color:#39252e
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#fff9f4;
+  color:#39252e;
 }
 
 header{
-position:sticky;
-top:0;
-z-index:20;
-background:linear-gradient(120deg,#3b0b25,#65133f,#b43b70);
-color:white;
-padding:14px 5%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:10px
+  background:linear-gradient(120deg,#3b0b25,#65133f,#b43b70);
+  color:white;
+  padding:15px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 .brand{
-font:bold 24px Georgia
+  font:bold 24px Georgia;
 }
 
 button{
-border:0;
-border-radius:25px;
-padding:11px 18px;
-margin:4px;
-font-weight:bold;
-cursor:pointer
+  border:0;
+  border-radius:25px;
+  padding:11px 18px;
+  margin:4px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.navbtn{
-background:white;
-color:#65133f
+.nav{
+  background:white;
+  color:#65133f;
 }
 
 .wine{
-background:#65133f;
-color:white
+  background:#65133f;
+  color:white;
 }
 
 .gold{
-background:#c9a45b;
-color:#321b24
+  background:#c9a45b;
+  color:#3b0b25;
 }
 
-.white{
-background:white;
-color:#65133f;
-border:1px solid #c9a45b
+.light{
+  background:white;
+  color:#65133f;
+  border:1px solid #c9a45b;
 }
 
 .hero{
-text-align:center;
-padding:75px 6%;
-background:radial-gradient(circle,#ffe7f0,#fff9f4 65%)
+  text-align:center;
+  padding:70px 6%;
+  background:radial-gradient(circle,#ffe7f0,#fff9f4 65%);
 }
 
 .hero h1{
-font:700 52px Georgia;
-color:#65133f;
-margin:15px 0
+  font:700 52px Georgia;
+  color:#65133f;
 }
 
 .hero p{
-font-size:18px
+  font-size:18px;
 }
 
 section{
-padding:45px 6%
+  padding:45px 6%;
 }
 
 .title{
-text-align:center;
-font:700 34px Georgia;
-color:#65133f
+  text-align:center;
+  font:700 34px Georgia;
+  color:#65133f;
 }
 
 .filters{
-text-align:center;
-margin:20px 0
+  text-align:center;
+  margin:20px 0;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
-gap:18px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
 }
 
 .card{
-background:white;
-border:1px solid #ead8c8;
-border-radius:18px;
-padding:10px;
-box-shadow:0 8px 22px #5b17301a
+  background:white;
+  border:1px solid #ead8c8;
+  border-radius:18px;
+  padding:10px;
+  box-shadow:0 8px 22px #5b17301a;
 }
 
 .card img{
-width:100%;
-height:250px;
-object-fit:cover;
-border-radius:13px;
-background:#eee
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:13px;
 }
 
 .card h3{
-margin:10px 4px;
-color:#65133f
+  margin:10px 4px;
+  color:#65133f;
 }
 
 .contact{
-background:#fff0f6;
-text-align:center
+  background:#fff0f6;
+  text-align:center;
 }
 
 .admin{
-background:#fcecf4
+  background:#fcecf4;
 }
 
 .panel{
-max-width:900px;
-margin:auto;
-background:white;
-padding:22px;
-border-radius:20px;
-box-shadow:0 10px 30px #5b17301a
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:22px;
+  border-radius:20px;
 }
 
 input,select{
-width:100%;
-padding:12px;
-margin:6px 0;
-border:1px solid #d9c3ce;
-border-radius:10px;
-font-size:16px
+  width:100%;
+  padding:12px;
+  margin:6px 0;
+  border:1px solid #dcc7d0;
+  border-radius:10px;
+  font-size:16px;
 }
 
 .row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
 .hidden{
-display:none!important
+  display:none !important;
 }
 
 .message{
-min-height:25px;
-margin:8px 0;
-font-weight:bold
-}
-
-.success{
-color:#176b35
-}
-
-.error{
-color:#a11f35
-}
-
-.empty{
-text-align:center;
-grid-column:1/-1;
-padding:25px
+  min-height:25px;
+  margin:8px 0;
+  font-weight:bold;
 }
 
 footer{
-background:#3b0b25;
-color:white;
-text-align:center;
-padding:22px
+  background:#3b0b25;
+  color:white;
+  text-align:center;
+  padding:20px;
 }
 
 @media(max-width:650px){
-.hero h1{font-size:40px}
-.row{grid-template-columns:1fr}
-.brand{
-width:100%;
-text-align:center
-}
-header{
-justify-content:center
-}
+  .hero h1{
+    font-size:40px;
+  }
+
+  .row{
+    grid-template-columns:1fr;
+  }
+
+  .brand{
+    width:100%;
+    text-align:center;
+  }
 }
 </style>
 </head>
@@ -210,19 +196,9 @@ justify-content:center
 </div>
 
 <div>
-
-<button class="navbtn" onclick="go('gallery')">
-Designs
-</button>
-
-<button class="navbtn" onclick="go('contact')">
-Contact
-</button>
-
-<button class="navbtn" onclick="go('admin')">
-Admin
-</button>
-
+<button class="nav" onclick="go('gallery')">Designs</button>
+<button class="nav" onclick="go('contact')">Contact</button>
+<button class="nav" onclick="go('admin')">Admin</button>
 </div>
 
 </header>
@@ -234,9 +210,7 @@ Admin
 LADIES TAILORING • TRADITIONAL DESIGN • CUSTOM WORK
 </b>
 
-<h1>
-Shubhechha Designer
-</h1>
+<h1>Shubhechha Designer</h1>
 
 <p>
 Navvari • Blouse Ari Work • Pipe Cleaner • Ladies Tailoring
@@ -261,30 +235,26 @@ Our Designs
 All
 </button>
 
-<button class="white filter" data-cat="navvari">
+<button class="light filter" data-cat="navvari">
 👗 Navvari
 </button>
 
-<button class="white filter" data-cat="ari">
+<button class="light filter" data-cat="ari">
 🌸 Blouse Ari Work
 </button>
 
-<button class="white filter" data-cat="pipe">
+<button class="light filter" data-cat="pipe">
 ✨ Pipe Cleaner
 </button>
 
-<button class="white filter" data-cat="tailoring">
+<button class="light filter" data-cat="tailoring">
 🧵 Ladies Tailoring
 </button>
 
 </div>
 
 <div id="galleryGrid" class="grid">
-
-<div class="empty">
-Loading designs...
-</div>
-
+<p>Loading designs...</p>
 </div>
 
 </section>
@@ -297,19 +267,13 @@ Contact Us
 </h2>
 
 <p>
-📞
-<a href="tel:9503533586">
-9503533586
-</a>
+📞 <a href="tel:9503533586">9503533586</a>
 |
-<a href="tel:8087233496">
-8087233496
-</a>
+<a href="tel:8087233496">8087233496</a>
 </p>
 
 <p>
-📍 Baba Complex Basement,
-Pimpalgaon Baswant,
+📍 Baba Complex Basement, Pimpalgaon Baswant,
 Near SBI Bank, Nashik
 </p>
 
@@ -332,14 +296,12 @@ Owner Admin
 
 <div id="loginBox">
 
-<h3>
-Owner Login
-</h3>
+<h3>Owner Login</h3>
 
 <input
 id="email"
 type="email"
-placeholder="Owner Email"
+placeholder="Email"
 autocomplete="username"
 >
 
@@ -350,26 +312,18 @@ placeholder="Password"
 autocomplete="current-password"
 >
 
-<button
-id="loginBtn"
-class="wine"
->
+<button id="loginBtn" class="wine">
 Login
 </button>
 
-<div
-id="loginMessage"
-class="message"
-></div>
+<div id="loginMessage" class="message"></div>
 
 </div>
 
 
 <div id="manageBox" class="hidden">
 
-<h3>
-Add New Design
-</h3>
+<h3>Add New Design</h3>
 
 <div class="row">
 
@@ -408,34 +362,22 @@ type="file"
 accept="image/*"
 >
 
-<button
-id="uploadBtn"
-class="gold"
->
+<button id="uploadBtn" class="gold">
 📸 Upload Photo
 </button>
 
-<button
-id="logoutBtn"
-class="white"
->
+<button id="logoutBtn" class="light">
 Logout
 </button>
 
-<div
-id="uploadMessage"
-class="message"
-></div>
+<div id="uploadMessage" class="message"></div>
 
 
 <h3>
 Uploaded Designs
 </h3>
 
-<div
-id="adminGrid"
-class="grid"
-></div>
+<div id="adminGrid" class="grid"></div>
 
 </div>
 
@@ -451,11 +393,28 @@ class="grid"
 
 <script>
 
+/* =========================
+   SUPABASE SETTINGS
+   ========================= */
+
 const SUPABASE_URL =
 "https://zrbunzihbejgsroeeamk.supabase.co";
 
 const SUPABASE_KEY =
 "sb_publishable_B4l88ERQV-FBYksTPFmk_g_OozMe87r";
+
+/*
+IMPORTANT:
+Your bucket name is exactly:
+
+Disian
+
+Do not change this spelling.
+*/
+
+const BUCKET =
+"Disian";
+
 
 const db =
 window.supabase.createClient(
@@ -464,654 +423,740 @@ SUPABASE_KEY
 );
 
 
-const names={
-navvari:"Navvari",
-ari:"Blouse Ari Work",
-pipe:"Pipe Cleaner",
-tailoring:"Ladies Tailoring"
+/* =========================
+   BASIC FUNCTIONS
+   ========================= */
+
+function $(id){
+  return document.getElementById(id);
+}
+
+
+function go(id){
+
+  const element=$(id);
+
+  if(element){
+    element.scrollIntoView({
+      behavior:"smooth"
+    });
+  }
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value || "")
+  .replace(/[&<>"']/g,function(char){
+
+    return {
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[char];
+
+  });
+
+}
+
+
+/* =========================
+   CATEGORY NAMES
+   ========================= */
+
+const categoryNames={
+
+  navvari:"Navvari",
+
+  ari:"Blouse Ari Work",
+
+  pipe:"Pipe Cleaner",
+
+  tailoring:"Ladies Tailoring"
+
 };
 
 
 let currentCategory="all";
 
 
-function $(id){
-return document.getElementById(id);
-}
-
-
-function go(id){
-
-const element=$(id);
-
-if(element){
-
-element.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-}
-
-
-function safe(value){
-
-return String(value||"").replace(
-/[&<>"']/g,
-function(x){
-
-return {
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#39;"
-}[x];
-
-}
-);
-
-}
-
-
-function showMessage(id,text,success=false){
-
-const el=$(id);
-
-el.textContent=text;
-
-el.className=
-"message "+
-(success?"success":"error");
-
-}
-
+/* =========================
+   CUSTOMER GALLERY
+   ========================= */
 
 async function loadGallery(){
 
-const grid=$("galleryGrid");
+  const grid=$("galleryGrid");
 
-grid.innerHTML=
-'<div class="empty">Loading designs...</div>';
-
-
-let query=
-db
-.from("designs")
-.select("*")
-.order("created_at",{ascending:false});
+  grid.innerHTML=
+  "<p>Loading designs...</p>";
 
 
-if(currentCategory!=="all"){
+  let query=
+  db
+  .from("designs")
+  .select("*")
+  .order(
+    "created_at",
+    {ascending:false}
+  );
 
-query=
-query.eq(
-"category",
-currentCategory
-);
+
+  if(currentCategory!=="all"){
+
+    query=
+    query.eq(
+      "category",
+      currentCategory
+    );
+
+  }
+
+
+  const result=await query;
+
+
+  if(result.error){
+
+    console.log(result.error);
+
+    grid.innerHTML=
+    "<p>Unable to load designs.</p>";
+
+    return;
+
+  }
+
+
+  if(!result.data ||
+     result.data.length===0){
+
+    grid.innerHTML=
+    "<p>No designs uploaded yet.</p>";
+
+    return;
+
+  }
+
+
+  grid.innerHTML=
+  result.data.map(function(item){
+
+    return `
+
+    <div class="card">
+
+      <img
+        src="${escapeHTML(item.image_url)}"
+        alt="${escapeHTML(
+          item.title ||
+          categoryNames[item.category]
+        )}"
+      >
+
+      <h3>
+        ${escapeHTML(
+          item.title ||
+          categoryNames[item.category]
+        )}
+      </h3>
+
+    </div>
+
+    `;
+
+  }).join("");
 
 }
 
 
-const result=await query;
+/* =========================
+   CATEGORY FILTER
+   ========================= */
+
+document
+.querySelectorAll(".filter")
+.forEach(function(button){
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      currentCategory=
+      button.dataset.cat;
 
 
-if(result.error){
+      document
+      .querySelectorAll(".filter")
+      .forEach(function(item){
 
-grid.innerHTML=
-'<div class="empty">Unable to load designs.</div>';
+        item.className=
+        "light filter";
 
-console.log(result.error);
-
-return;
-
-}
+      });
 
 
-if(!result.data ||
-result.data.length===0){
-
-grid.innerHTML=
-'<div class="empty">No designs uploaded yet.</div>';
-
-return;
-
-}
+      button.className=
+      "wine filter";
 
 
-grid.innerHTML=
-result.data.map(function(item){
+      loadGallery();
 
-return `
-<div class="card">
+    }
+  );
 
-<img
-src="${safe(item.image_url)}"
-alt="${safe(item.title||names[item.category])}"
->
+});
 
-<h3>
-${safe(item.title||names[item.category])}
-</h3>
 
-</div>
-`;
-
-}).join("");
-
-}
-
+/* =========================
+   LOGIN
+   ========================= */
 
 async function login(){
 
-const email=
-$("email").value.trim();
+  const email=
+  $("email").value.trim();
 
-const password=
-$("password").value;
+  const password=
+  $("password").value;
 
 
-if(!email||!password){
+  if(!email || !password){
 
-showMessage(
-"loginMessage",
-"Please enter email and password."
-);
+    $("loginMessage").textContent=
+    "Enter email and password.";
 
-return;
+    return;
+
+  }
+
+
+  const button=$("loginBtn");
+
+  button.disabled=true;
+
+  button.textContent=
+  "Logging in...";
+
+
+  const result=
+  await db.auth.signInWithPassword({
+
+    email:email,
+
+    password:password
+
+  });
+
+
+  if(result.error){
+
+    $("loginMessage").textContent=
+    result.error.message;
+
+    button.disabled=false;
+
+    button.textContent=
+    "Login";
+
+    return;
+
+  }
+
+
+  $("loginBox")
+  .classList
+  .add("hidden");
+
+
+  $("manageBox")
+  .classList
+  .remove("hidden");
+
+
+  $("loginMessage").textContent=
+  "Login successful!";
+
+
+  await loadAdmin();
+
+
+  button.disabled=false;
+
+  button.textContent=
+  "Login";
 
 }
 
 
-const button=$("loginBtn");
-
-button.disabled=true;
-
-button.textContent=
-"Logging in...";
-
-
-const result=
-await db.auth.signInWithPassword({
-
-email:email,
-
-password:password
-
-});
-
-
-if(result.error){
-
-showMessage(
-"loginMessage",
-result.error.message
-);
-
-button.disabled=false;
-
-button.textContent="Login";
-
-return;
-
-}
-
-
-$("loginBox")
-.classList.add("hidden");
-
-$("manageBox")
-.classList.remove("hidden");
-
-showMessage(
-"loginMessage",
-"Login successful!",
-true
-);
-
-
-await loadAdmin();
-
-
-button.disabled=false;
-
-button.textContent="Login";
-
-}
-
+/* =========================
+   UPLOAD PHOTO
+   ========================= */
 
 async function uploadPhoto(){
 
-const file=
-$("photo").files[0];
+  const file=
+  $("photo").files[0];
 
-if(!file){
 
-showMessage(
-"uploadMessage",
-"Please select a photo first."
-);
+  if(!file){
 
-return;
+    $("uploadMessage").textContent=
+    "Please select a photo.";
+
+    return;
+
+  }
+
+
+  const session=
+  await db.auth.getSession();
+
+
+  if(!session.data.session){
+
+    $("uploadMessage").textContent=
+    "Please login again.";
+
+    return;
+
+  }
+
+
+  const button=$("uploadBtn");
+
+  button.disabled=true;
+
+  button.textContent=
+  "Uploading...";
+
+
+  const category=
+  $("category").value;
+
+
+  const title=
+  $("title").value.trim();
+
+
+  const extension=
+  file.name
+  .split(".")
+  .pop()
+  .toLowerCase();
+
+
+  const filePath=
+  category+
+  "/" +
+  Date.now()+
+  "-" +
+  Math.random()
+  .toString(36)
+  .substring(2,8)+
+  "."+
+  extension;
+
+
+  /* Upload to Disian */
+
+  const upload=
+  await db
+  .storage
+  .from(BUCKET)
+  .upload(
+    filePath,
+    file,
+    {
+      cacheControl:"3600",
+      upsert:false,
+      contentType:file.type
+    }
+  );
+
+
+  if(upload.error){
+
+    console.log(upload.error);
+
+    $("uploadMessage").textContent=
+    "Upload failed: "+
+    upload.error.message;
+
+    button.disabled=false;
+
+    button.textContent=
+    "📸 Upload Photo";
+
+    return;
+
+  }
+
+
+  /* Get public URL */
+
+  const publicURL=
+  db
+  .storage
+  .from(BUCKET)
+  .getPublicUrl(filePath)
+  .data
+  .publicUrl;
+
+
+  /* Save information in designs table */
+
+  const insert=
+  await db
+  .from("designs")
+  .insert({
+
+    title:title,
+
+    category:category,
+
+    image_url:publicURL,
+
+    storage_path:filePath
+
+  });
+
+
+  if(insert.error){
+
+    console.log(insert.error);
+
+
+    /* Remove uploaded image
+       if database insert fails */
+
+    await db
+    .storage
+    .from(BUCKET)
+    .remove([filePath]);
+
+
+    $("uploadMessage").textContent=
+    "Database error: "+
+    insert.error.message;
+
+
+    button.disabled=false;
+
+    button.textContent=
+    "📸 Upload Photo";
+
+    return;
+
+  }
+
+
+  $("photo").value="";
+
+  $("title").value="";
+
+
+  $("uploadMessage").textContent=
+  "Photo uploaded successfully! ✅";
+
+
+  await loadGallery();
+
+  await loadAdmin();
+
+
+  button.disabled=false;
+
+  button.textContent=
+  "📸 Upload Photo";
 
 }
 
 
-const session=
-await db.auth.getSession();
-
-
-if(!session.data.session){
-
-showMessage(
-"uploadMessage",
-"Please login again."
-);
-
-return;
-
-}
-
-
-const button=$("uploadBtn");
-
-button.disabled=true;
-
-button.textContent=
-"Uploading...";
-
-
-const category=
-$("category").value;
-
-const title=
-$("title").value.trim();
-
-
-const extension=
-file.name
-.split(".")
-.pop()
-.toLowerCase();
-
-
-const path=
-category+
-"/"+
-Date.now()+
-"."+extension;
-
-
-const upload=
-await db
-.storage
-.from("DISIAN")
-.upload(
-path,
-file,
-{
-cacheControl:"3600",
-upsert:false,
-contentType:file.type
-}
-);
-
-
-if(upload.error){
-
-showMessage(
-"uploadMessage",
-"Upload failed: "+
-upload.error.message
-);
-
-button.disabled=false;
-
-button.textContent=
-"📸 Upload Photo";
-
-return;
-
-}
-
-
-const publicUrl=
-db
-.storage
-.from("DISIAN")
-.getPublicUrl(path)
-.data
-.publicUrl;
-
-
-const insert=
-await db
-.from("designs")
-.insert({
-
-title:title,
-
-category:category,
-
-image_url:publicUrl,
-
-storage_path:path
-
-});
-
-
-if(insert.error){
-
-await db
-.storage
-.from("DISIAN")
-.remove([path]);
-
-showMessage(
-"uploadMessage",
-"Database error: "+
-insert.error.message
-);
-
-button.disabled=false;
-
-button.textContent=
-"📸 Upload Photo";
-
-return;
-
-}
-
-
-$("photo").value="";
-
-$("title").value="";
-
-
-showMessage(
-"uploadMessage",
-"Photo uploaded successfully! ✅",
-true
-);
-
-
-await loadGallery();
-
-await loadAdmin();
-
-
-button.disabled=false;
-
-button.textContent=
-"📸 Upload Photo";
-
-}
-
+/* =========================
+   ADMIN DESIGNS
+   ========================= */
 
 async function loadAdmin(){
 
-const grid=
-$("adminGrid");
+  const grid=$("adminGrid");
 
-grid.innerHTML=
-'<div class="empty">Loading...</div>';
-
-
-const result=
-await db
-.from("designs")
-.select("*")
-.order("created_at",{ascending:false});
+  grid.innerHTML=
+  "<p>Loading...</p>";
 
 
-if(result.error){
-
-grid.innerHTML=
-'<div class="empty">'+
-safe(result.error.message)+
-'</div>';
-
-return;
-
-}
+  const result=
+  await db
+  .from("designs")
+  .select("*")
+  .order(
+    "created_at",
+    {ascending:false}
+  );
 
 
-if(!result.data ||
-result.data.length===0){
+  if(result.error){
 
-grid.innerHTML=
-'<div class="empty">No designs uploaded yet.</div>';
+    grid.innerHTML=
+    "<p>"+
+    escapeHTML(result.error.message)+
+    "</p>";
 
-return;
+    return;
 
-}
-
-
-grid.innerHTML=
-result.data.map(function(item){
-
-return `
-
-<div class="card">
-
-<img
-src="${safe(item.image_url)}"
->
-
-<h3>
-${safe(item.title||names[item.category])}
-</h3>
-
-<button
-class="white deleteButton"
-data-id="${item.id}"
-data-path="${encodeURIComponent(item.storage_path||"")}"
->
-🗑️ Delete
-</button>
-
-</div>
-
-`;
-
-}).join("");
+  }
 
 
-document
-.querySelectorAll(".deleteButton")
-.forEach(function(button){
+  if(!result.data ||
+     result.data.length===0){
 
-button.addEventListener(
-"click",
-function(){
+    grid.innerHTML=
+    "<p>No designs uploaded yet.</p>";
 
-deleteDesign(
-button.dataset.id,
-decodeURIComponent(
-button.dataset.path
-)
-);
+    return;
 
-}
-);
-
-});
-
-}
+  }
 
 
-async function deleteDesign(id,path){
+  grid.innerHTML=
+  result.data.map(function(item){
 
-if(!confirm(
-"Delete this design?"
-)){
+    return `
 
-return;
+    <div class="card">
 
-}
+      <img
+        src="${escapeHTML(item.image_url)}"
+      >
+
+      <h3>
+        ${escapeHTML(
+          item.title ||
+          categoryNames[item.category]
+        )}
+      </h3>
+
+      <button
+        class="light deleteButton"
+        data-id="${item.id}"
+        data-path="${encodeURIComponent(
+          item.storage_path || ""
+        )}"
+      >
+        🗑️ Delete
+      </button>
+
+    </div>
+
+    `;
+
+  }).join("");
 
 
-if(path){
+  document
+  .querySelectorAll(".deleteButton")
+  .forEach(function(button){
 
-const storageDelete=
-await db
-.storage
-.from("DISIAN")
-.remove([path]);
+    button.addEventListener(
+      "click",
+      function(){
 
+        deleteDesign(
 
-if(storageDelete.error){
+          button.dataset.id,
 
-alert(
-"Storage delete failed: "+
-storageDelete.error.message
-);
+          decodeURIComponent(
+            button.dataset.path
+          )
 
-return;
+        );
 
-}
+      }
+    );
+
+  });
 
 }
 
 
-const result=
-await db
-.from("designs")
-.delete()
-.eq("id",id);
+/* =========================
+   DELETE
+   ========================= */
+
+async function deleteDesign(
+  id,
+  filePath
+){
+
+  const yes=
+  confirm(
+    "Delete this design?"
+  );
 
 
-if(result.error){
+  if(!yes){
+    return;
+  }
 
-alert(
-"Database delete failed: "+
-result.error.message
-);
 
-return;
+  if(filePath){
+
+    const remove=
+    await db
+    .storage
+    .from(BUCKET)
+    .remove([filePath]);
+
+
+    if(remove.error){
+
+      alert(
+        "Photo delete failed: "+
+        remove.error.message
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  const result=
+  await db
+  .from("designs")
+  .delete()
+  .eq("id",id);
+
+
+  if(result.error){
+
+    alert(
+      "Database delete failed: "+
+      result.error.message
+    );
+
+    return;
+
+  }
+
+
+  await loadGallery();
+
+  await loadAdmin();
 
 }
 
 
-await loadGallery();
-
-await loadAdmin();
-
-}
-
+/* =========================
+   LOGOUT
+   ========================= */
 
 async function logout(){
 
-await db.auth.signOut();
-
-$("manageBox")
-.classList.add("hidden");
-
-$("loginBox")
-.classList.remove("hidden");
-
-$("password").value="";
-
-showMessage(
-"loginMessage",
-"Logged out.",
-true
-);
-
-}
+  await db.auth.signOut();
 
 
-document
-.querySelectorAll(".filter")
-.forEach(function(button){
-
-button.addEventListener(
-"click",
-function(){
-
-currentCategory=
-button.dataset.cat;
+  $("manageBox")
+  .classList
+  .add("hidden");
 
 
-document
-.querySelectorAll(".filter")
-.forEach(function(x){
-
-x.className=
-"white filter";
-
-});
+  $("loginBox")
+  .classList
+  .remove("hidden");
 
 
-button.className=
-"wine filter";
+  $("password").value="";
 
 
-loadGallery();
+  $("loginMessage").textContent=
+  "Logged out.";
 
 }
-);
 
-});
 
+/* =========================
+   BUTTON EVENTS
+   ========================= */
 
 $("loginBtn")
 .addEventListener(
-"click",
-login
+  "click",
+  login
 );
 
 
 $("uploadBtn")
 .addEventListener(
-"click",
-uploadPhoto
+  "click",
+  uploadPhoto
 );
 
 
 $("logoutBtn")
 .addEventListener(
-"click",
-logout
+  "click",
+  logout
 );
 
 
+/* =========================
+   REMEMBER LOGIN
+   ========================= */
+
 db.auth.onAuthStateChange(
-function(event,session){
+  function(event,session){
 
-if(session){
+    if(session){
 
-$("loginBox")
-.classList.add("hidden");
+      $("loginBox")
+      .classList
+      .add("hidden");
 
-$("manageBox")
-.classList.remove("hidden");
 
-loadAdmin();
+      $("manageBox")
+      .classList
+      .remove("hidden");
 
-}
 
-});
+      loadAdmin();
 
+    }
+
+  }
+);
+
+
+/* =========================
+   START WEBSITE
+   ========================= */
 
 loadGallery();
 
 
-db.auth.getSession()
+db.auth
+.getSession()
 .then(function(result){
 
-if(result.data.session){
+  if(result.data.session){
 
-$("loginBox")
-.classList.add("hidden");
+    $("loginBox")
+    .classList
+    .add("hidden");
 
-$("manageBox")
-.classList.remove("hidden");
 
-loadAdmin();
+    $("manageBox")
+    .classList
+    .remove("hidden");
 
-}
+
+    loadAdmin();
+
+  }
 
 });
 
